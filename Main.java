@@ -12,10 +12,13 @@ public class Main {
             switch (a) {
                 case 1:
                     main1(args);
+                    break;
                 case 2:
                     main2(args);
+                    break;
                 case 3:
                     main3(args);
+                    break;
             }
         }
     }
@@ -39,11 +42,11 @@ public class Main {
                 z = new Random().nextInt();
                 System.out.println("Z: " + z);
 
-                while (z > sum) {
+                do {
                     ksi += 1;
                     prob *= lambda / ksi;
                     sum += prob;
-                }
+                } while (z > sum);
 
                 System.out.println("Ksi: " + ksi);
                 System.out.println("Lambda: " + lambda);
@@ -82,11 +85,11 @@ public class Main {
                 z = new Random().nextInt();
                 System.out.println("Z: " + z);
 
-                while (z > sum) {
+                do {
                     ksi += 1;
                     prob *= (1 - p);
                     sum += prob;
-                }
+                } while (z > sum);
 
                 System.out.println("Ksi: " + ksi);
                 System.out.println("P: " + p);
