@@ -27,7 +27,7 @@ public class Main {
         try (Scanner in = new Scanner(System.in)) {
 
             int ksi, a = 0;
-            double z, prob, sum = 0, lambda, sa;
+            double z, prob, sum, lambda, sa;
 
             System.out.println("L: ");
             lambda = in.nextInt();
@@ -37,6 +37,7 @@ public class Main {
                 ksi = 0;
 
                 prob = Math.exp(-25);
+                sum = prob;
                 System.out.println("Pr: " + prob);
 
                 z = new Random().nextInt();
@@ -70,7 +71,7 @@ public class Main {
         try (Scanner in = new Scanner(System.in)) {
 
             int ksi, a = 0;
-            double z, prob, sum = 0, p, sa;
+            double z, prob, sum, p, sa;
 
             System.out.println("P: ");
             p = in.nextInt();
@@ -80,6 +81,7 @@ public class Main {
                 ksi = 0;
 
                 prob = p;
+                sum = prob;
                 System.out.println("Pr: " + prob);
 
                 z = new Random().nextInt();
@@ -122,14 +124,16 @@ public class Main {
 
                 ksi = 0;
 
-                z = new Random().nextInt();
-                System.out.println("Z: " + z);
+                for (int j = 0; j < 50; j++) {
+                    z = new Random().nextInt();
+                    System.out.println("Z: " + z);
 
-                if (z > sum) {
-                    ksi += 1;
+                    if (z < p) {
+                        ksi += 1;
+                    }
+                    System.out.println("Ksi: " + ksi);
                 }
 
-                System.out.println("Ksi: " + ksi);
                 System.out.println("P: " + p);
                 System.out.println("Sum: " + sum);
                 a += ksi;
