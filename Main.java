@@ -114,7 +114,7 @@ public class Main {
 
         try (Scanner in = new Scanner(System.in)) {
 
-            int ksi, a = 0;
+            int ksi, a = 0, n, min = 1, max = 100;
             double z, sum = 0, p, sa;
 
             System.out.println("P: ");
@@ -124,7 +124,10 @@ public class Main {
 
                 ksi = 0;
 
-                for (int j = 0; j < 50; j++) {
+                n = (int) Math.floor(Math.random() * (max - min + 1) + min);
+                System.out.println("N: " + n);
+
+                for (int j = 0; j < n; j++) {
                     z = new Random().nextInt();
                     System.out.println("Z: " + z);
 
