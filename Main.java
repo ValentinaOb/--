@@ -240,7 +240,7 @@ public class Main {
         try (Scanner in = new Scanner(System.in)) {
             // NP
             int ksi;
-            double a, Sn, S = 0, b, z = 0.0, sa, min = 0.0, max = 1.0;
+            double a, Sn, S = 0, S1 = 0, b, z = 0.0, sa, sa1, d, min = 0.0, max = 1.0;
 
             a = new Random().nextInt();
             b = new Random().nextInt();
@@ -257,6 +257,7 @@ public class Main {
                     System.out.println("Z: " + z);
 
                     S += z;
+                    S1 += Math.pow(z, 2);
                 }
             }
 
@@ -264,12 +265,18 @@ public class Main {
             ksi = (int) (Sn * b + a);
 
             System.out.println("S: " + S);
+            System.out.println("S1: " + S1);
             System.out.println("Sn: " + Sn);
             System.out.println("Ksi: " + ksi);
 
             sa = S / 100.0;
+            sa1 = S1 / 100.0;
+
+            d = sa1 - Math.pow(sa, 2);
 
             System.out.println("SA: " + sa);
+            System.out.println("SA1: " + sa1);
+            System.out.println("D: " + d);
 
         }
     }
