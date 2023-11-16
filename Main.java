@@ -34,7 +34,7 @@ public class Main {
 
     public static void main1(String[] args) {
         try (Scanner in = new Scanner(System.in)) {
-
+            // Pyassonn
             int ksi, a = 0;
             double z, prob, sum, lambda, sa;
 
@@ -78,7 +78,7 @@ public class Main {
     public static void main2(String[] args) {
 
         try (Scanner in = new Scanner(System.in)) {
-
+            // Geom
             int ksi, a = 0;
             double z, prob, sum, p, sa;
 
@@ -122,7 +122,7 @@ public class Main {
     public static void main3(String[] args) {
 
         try (Scanner in = new Scanner(System.in)) {
-
+            // Binom
             int ksi, n, min = 1, max = 100;
             double z, sum = 0, p, sa;
 
@@ -164,7 +164,7 @@ public class Main {
     public static void main4(String[] args) {
 
         try (Scanner in = new Scanner(System.in)) {
-
+            // PP
             int ksi, a = 0, b = 0;
             double z, sum = 0, sa, min = 0, max = 1;
 
@@ -202,7 +202,7 @@ public class Main {
     public static void main5(String[] args) {
 
         try (Scanner in = new Scanner(System.in)) {
-
+            // EP
             int ksi;
             double a, z, sum = 0, sa, min = 0, max = 1;
 
@@ -238,7 +238,7 @@ public class Main {
     public static void main6(String[] args) {
 
         try (Scanner in = new Scanner(System.in)) {
-
+            // NP
             int ksi;
             double a, Sn, S = 0, b, z = 0.0, sa, min = 0.0, max = 1.0;
 
