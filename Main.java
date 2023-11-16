@@ -19,6 +19,15 @@ public class Main {
                 case 3:
                     main3(args);
                     break;
+                case 4:
+                    main4(args);
+                    break;
+                case 5:
+                    main5(args);
+                    break;
+                case 6:
+                    main6(args);
+                    break;
             }
         }
     }
@@ -114,7 +123,7 @@ public class Main {
 
         try (Scanner in = new Scanner(System.in)) {
 
-            int ksi, a = 0, n, min = 1, max = 100;
+            int ksi, n, min = 1, max = 100;
             double z, sum = 0, p, sa;
 
             System.out.println("P: ");
@@ -138,17 +147,131 @@ public class Main {
                 }
 
                 System.out.println("P: " + p);
-                System.out.println("Sum: " + sum);
-                a += ksi;
+                sum += ksi;
                 System.out.println("Ksi: " + ksi);
+                System.out.println("Sum: " + sum);
 
             }
 
-            sa = a / 100.0;
+            sa = sum / 100.0;
 
-            System.out.println("A: " + a);
+            System.out.println("Sum: " + sum);
             System.out.println("SA: " + sa);
 
         }
     }
+
+    public static void main4(String[] args) {
+
+        try (Scanner in = new Scanner(System.in)) {
+
+            int ksi, a = 0, b = 0;
+            double z, sum = 0, sa, min = 0, max = 1;
+
+            a = new Random().nextInt();
+            b = new Random().nextInt();
+
+            System.out.println("A: " + a);
+            System.out.println("B: " + b);
+
+            for (int i = 0; i < 100; i++) {
+
+                ksi = 0;
+
+                for (int j = 0; j < 100; j++) {
+                    z = (double) Math.floor(Math.random() * (max - min + 1) + min);
+                    System.out.println("Z: " + z);
+
+                    ksi = (int) ((b - a) * z + a);
+                    System.out.println("Ksi: " + ksi);
+                }
+
+                sum += ksi;
+                System.out.println("Sum: " + sum);
+
+            }
+
+            sa = sum / 100.0;
+
+            System.out.println("Sum: " + sum);
+            System.out.println("SA: " + sa);
+
+        }
+    }
+
+    public static void main5(String[] args) {
+
+        try (Scanner in = new Scanner(System.in)) {
+
+            int ksi;
+            double a, z, sum = 0, sa, min = 0, max = 1;
+
+            a = new Random().nextInt();
+
+            System.out.println("A: " + a);
+
+            for (int i = 0; i < 100; i++) {
+
+                ksi = 0;
+
+                for (int j = 0; j < 100; j++) {
+                    z = (double) Math.floor(Math.random() * (max - min + 1) + min);
+                    System.out.println("Z: " + z);
+
+                    ksi = (int) ((-1 / a) * Math.log(1 - z));
+                    System.out.println("Ksi: " + ksi);
+                }
+
+                sum += ksi;
+                System.out.println("Sum: " + sum);
+
+            }
+
+            sa = sum / 100.0;
+
+            System.out.println("Sum: " + sum);
+            System.out.println("SA: " + sa);
+
+        }
+    }
+
+    public static void main6(String[] args) {
+
+        try (Scanner in = new Scanner(System.in)) {
+
+            int ksi;
+            double a, Sn, S = 0, b, z = 0.0, sa, min = 0.0, max = 1.0;
+
+            a = new Random().nextInt();
+            b = new Random().nextInt();
+
+            System.out.println("A: " + a);
+            System.out.println("B: " + b);
+
+            for (int i = 0; i < 100; i++) {
+
+                ksi = 0;
+
+                for (int j = 0; j < 100; j++) {
+                    z = (double) Math.floor(Math.random() * (max - min + 1) + min);
+                    System.out.println("Z: " + z);
+
+                    S += z;
+                }
+            }
+
+            Sn = S - 50;
+            ksi = (int) (Sn * b + a);
+
+            System.out.println("S: " + S);
+            System.out.println("Sn: " + Sn);
+            System.out.println("Ksi: " + ksi);
+
+            sa = S / 100.0;
+
+            System.out.println("SA: " + sa);
+
+        }
+    }
+
 }
