@@ -36,7 +36,7 @@ public class Main {
         try (Scanner in = new Scanner(System.in)) {
             // Pyassonn
             int ksi, a = 0;
-            double z, prob, sum, lambda, sa;
+            double z, prob, sum, lambda, sa, d = 0, x = 0, x1 = 0;
 
             System.out.println("L: ");
             lambda = in.nextInt();
@@ -51,6 +51,9 @@ public class Main {
 
                 z = new Random().nextInt();
                 System.out.println("Z: " + z);
+
+                x += z;
+                x1 += Math.pow(z, 2);
 
                 do {
                     ksi += 1;
@@ -68,9 +71,11 @@ public class Main {
             }
 
             sa = a / 100.0;
+            d = x1 - Math.pow(x, 2);
 
             System.out.println("A: " + a);
             System.out.println("SA: " + sa);
+            System.out.println("D: " + d);
 
         }
     }
@@ -80,7 +85,7 @@ public class Main {
         try (Scanner in = new Scanner(System.in)) {
             // Geom
             int ksi, a = 0;
-            double z, prob, sum, p, sa;
+            double z, prob, sum, p, sa, d = 0, x = 0, x1 = 0;
 
             System.out.println("P: ");
             p = in.nextInt();
@@ -95,6 +100,9 @@ public class Main {
 
                 z = new Random().nextInt();
                 System.out.println("Z: " + z);
+
+                x += z;
+                x1 += Math.pow(z, 2);
 
                 do {
                     ksi += 1;
@@ -112,9 +120,11 @@ public class Main {
             }
 
             sa = a / 100.0;
+            d = x1 - Math.pow(x, 2);
 
             System.out.println("A: " + a);
             System.out.println("SA: " + sa);
+            System.out.println("D: " + d);
 
         }
     }
@@ -124,7 +134,7 @@ public class Main {
         try (Scanner in = new Scanner(System.in)) {
             // Binom
             int ksi, n, min = 1, max = 100;
-            double z, sum = 0, p, sa;
+            double z, sum = 0, p, sa, d = 0, x = 0, x1 = 0;
 
             System.out.println("P: ");
             p = in.nextInt();
@@ -140,6 +150,9 @@ public class Main {
                     z = new Random().nextInt();
                     System.out.println("Z: " + z);
 
+                    x += z;
+                    x1 += Math.pow(z, 2);
+
                     if (z < p) {
                         ksi += 1;
                     }
@@ -154,9 +167,11 @@ public class Main {
             }
 
             sa = sum / 100.0;
+            d = x1 - Math.pow(x, 2);
 
             System.out.println("Sum: " + sum);
             System.out.println("SA: " + sa);
+            System.out.println("D: " + d);
 
         }
     }
@@ -166,7 +181,7 @@ public class Main {
         try (Scanner in = new Scanner(System.in)) {
             // PP
             int ksi, a = 0, b = 0;
-            double z, sum = 0, sa;
+            double z, sum = 0, sa, d = 0, x = 0, x1 = 0;
 
             a = new Random().nextInt();
             b = new Random().nextInt();
@@ -183,20 +198,22 @@ public class Main {
                     z = rd.nextDouble();
                     System.out.println("Z: " + z);
 
+                    x += z;
+                    x1 += Math.pow(z, 2);
+
                     ksi = (int) ((b - a) * z + a);
                     System.out.println("Ksi: " + ksi);
                 }
 
                 sum += ksi;
-                System.out.println("Sum: " + sum);
-
             }
 
             sa = sum / 100.0;
+            d = x1 - Math.pow(x, 2);
 
             System.out.println("Sum: " + sum);
             System.out.println("SA: " + sa);
-
+            System.out.println("D: " + d);
         }
     }
 
@@ -205,7 +222,7 @@ public class Main {
         try (Scanner in = new Scanner(System.in)) {
             // EP
             int ksi;
-            double a, z, sum = 0, sa;
+            double a, z, sum = 0, sa, d = 0, x = 0, x1 = 0;
 
             a = new Random().nextInt();
 
@@ -220,7 +237,11 @@ public class Main {
                     z = rd.nextDouble();
                     System.out.println("Z: " + z);
 
+                    x += z;
+                    x1 += Math.pow(z, 2);
+
                     ksi = (int) ((-1 / a) * Math.log(1 - z));
+
                     System.out.println("Ksi: " + ksi);
                 }
 
@@ -231,8 +252,11 @@ public class Main {
 
             sa = sum / 100.0;
 
+            d = x1 - Math.pow(x, 2);
+
             System.out.println("Sum: " + sum);
             System.out.println("SA: " + sa);
+            System.out.println("D: " + d);
 
         }
     }
