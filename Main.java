@@ -35,8 +35,8 @@ public class Main {
     public static void main1(String[] args) {
         try (Scanner in = new Scanner(System.in)) {
             // Pyassonn
-            int ksi, a = 0;
-            double z, prob, sum, lambda, sa, d = 0, x = 0, x1 = 0;
+            int ksi;
+            double s = 0, s1 = 0, sa, sa1, z, prob, sum, lambda, d = 0, x = 0, x1 = 0;
 
             System.out.println("L: ");
             lambda = in.nextInt();
@@ -61,20 +61,24 @@ public class Main {
                     sum += prob;
                 } while (z > sum);
 
-                System.out.println("Ksi: " + ksi);
                 System.out.println("Lambda: " + lambda);
                 System.out.println("Pr: " + prob);
-                System.out.println("Sum: " + sum);
-                a += ksi;
                 System.out.println("Ksi: " + ksi);
+
+                s += ksi;
+                s1 += Math.pow(ksi, 2);
 
             }
 
-            sa = a / 100.0;
-            d = x1 - Math.pow(x, 2);
+            sa = s / 100.0;
+            sa1 = s1 / 100.0;
 
-            System.out.println("A: " + a);
-            System.out.println("SA: " + sa);
+            d = sa1 - Math.pow(sa, 2);
+
+            System.out.println("S: " + s);
+            System.out.println("S1: " + s1);
+            System.out.println("Sa: " + sa);
+            System.out.println("Sa1: " + sa1);
             System.out.println("D: " + d);
 
         }
@@ -84,8 +88,8 @@ public class Main {
 
         try (Scanner in = new Scanner(System.in)) {
             // Geom
-            int ksi, a = 0;
-            double z, prob, sum, p, sa, d = 0, x = 0, x1 = 0;
+            int ksi;
+            double s = 0, s1 = 0, sa, sa1, z, prob, sum, p, d = 0;
 
             System.out.println("P: ");
             p = in.nextInt();
@@ -101,9 +105,6 @@ public class Main {
                 z = new Random().nextInt();
                 System.out.println("Z: " + z);
 
-                x += z;
-                x1 += Math.pow(z, 2);
-
                 do {
                     ksi += 1;
                     prob *= (1 - p);
@@ -114,16 +115,22 @@ public class Main {
                 System.out.println("P: " + p);
                 System.out.println("Pr: " + prob);
                 System.out.println("Sum: " + sum);
-                a += ksi;
+
+                s += ksi;
+                s1 += Math.pow(ksi, 2);
                 System.out.println("Ksi: " + ksi);
 
             }
 
-            sa = a / 100.0;
-            d = x1 - Math.pow(x, 2);
+            sa = s / 100.0;
+            sa1 = s1 / 100.0;
 
-            System.out.println("A: " + a);
-            System.out.println("SA: " + sa);
+            d = sa1 - Math.pow(sa, 2);
+
+            System.out.println("S: " + s);
+            System.out.println("S1: " + s1);
+            System.out.println("Sa: " + sa);
+            System.out.println("Sa1: " + sa1);
             System.out.println("D: " + d);
 
         }
@@ -134,7 +141,8 @@ public class Main {
         try (Scanner in = new Scanner(System.in)) {
             // Binom
             int ksi, n, min = 1, max = 100;
-            double z, sum = 0, p, sa, d = 0, x = 0, x1 = 0;
+            double s = 0, s1 = 0, sa, sa1;
+            double z, p, d = 0;
 
             System.out.println("P: ");
             p = in.nextInt();
@@ -150,27 +158,27 @@ public class Main {
                     z = new Random().nextInt();
                     System.out.println("Z: " + z);
 
-                    x += z;
-                    x1 += Math.pow(z, 2);
-
                     if (z < p) {
                         ksi += 1;
                     }
                     System.out.println("Ksi: " + ksi);
                 }
 
-                System.out.println("P: " + p);
-                sum += ksi;
+                s += ksi;
+                s1 += Math.pow(ksi, 2);
                 System.out.println("Ksi: " + ksi);
-                System.out.println("Sum: " + sum);
 
             }
 
-            sa = sum / 100.0;
-            d = x1 - Math.pow(x, 2);
+            sa = (int) s / 100.0;
+            sa1 = (int) s1 / 100.0;
 
-            System.out.println("Sum: " + sum);
-            System.out.println("SA: " + sa);
+            d = sa1 - Math.pow(sa, 2);
+
+            System.out.println("S: " + s);
+            System.out.println("S1: " + s1);
+            System.out.println("Sa: " + sa);
+            System.out.println("Sa1: " + sa1);
             System.out.println("D: " + d);
 
         }
@@ -180,39 +188,38 @@ public class Main {
 
         try (Scanner in = new Scanner(System.in)) {
             // PP
-            int ksi, a = 0, b = 0;
-            double z, sum = 0, sa, d = 0, x = 0, x1 = 0;
+            double s = 0, s1 = 0, a = 0, b = 0, ksi, z, sa, sa1, d = 0;
 
-            a = new Random().nextInt();
-            b = new Random().nextInt();
+            a = new Random().nextDouble();
+            b = new Random().nextDouble();
 
             System.out.println("A: " + a);
             System.out.println("B: " + b);
 
             for (int i = 0; i < 100; i++) {
 
-                ksi = 0;
-
                 for (int j = 0; j < 100; j++) {
                     Random rd = new Random();
                     z = rd.nextDouble();
                     System.out.println("Z: " + z);
 
-                    x += z;
-                    x1 += Math.pow(z, 2);
-
-                    ksi = (int) ((b - a) * z + a);
+                    ksi = ((b - a) * z + a);
                     System.out.println("Ksi: " + ksi);
-                }
 
-                sum += ksi;
+                    s += ksi;
+                    s1 += Math.pow(ksi, 2);
+                }
             }
 
-            sa = sum / 100.0;
-            d = x1 - Math.pow(x, 2);
+            sa = s / 100.0;
+            sa1 = s1 / 100.0;
 
-            System.out.println("Sum: " + sum);
-            System.out.println("SA: " + sa);
+            d = sa1 - Math.pow(sa, 2);
+
+            System.out.println("S: " + s);
+            System.out.println("S1: " + s1);
+            System.out.println("Sa: " + sa);
+            System.out.println("Sa1: " + sa1);
             System.out.println("D: " + d);
         }
     }
@@ -221,8 +228,7 @@ public class Main {
 
         try (Scanner in = new Scanner(System.in)) {
             // EP
-            int ksi;
-            double a, z, sum = 0, sa, d = 0, x = 0, x1 = 0;
+            double ksi = 0, a, sa, sa1, z = 0, d = 0, s = 0, s1 = 0;
 
             a = new Random().nextInt();
 
@@ -230,32 +236,28 @@ public class Main {
 
             for (int i = 0; i < 100; i++) {
 
-                ksi = 0;
-
                 for (int j = 0; j < 100; j++) {
                     Random rd = new Random();
                     z = rd.nextDouble();
                     System.out.println("Z: " + z);
-
-                    x += z;
-                    x1 += Math.pow(z, 2);
-
-                    ksi = (int) ((-1 / a) * Math.log(1 - z));
-
-                    System.out.println("Ksi: " + ksi);
                 }
 
-                sum += ksi;
-                System.out.println("Sum: " + sum);
+                ksi = ((-1 / a) * Math.log(1 - z));
+
+                s += ksi;
+                s1 += Math.pow(ksi, 2);
+
+                System.out.println("Ksi: " + ksi);
 
             }
 
-            sa = sum / 100.0;
+            sa = s / 100.0;
+            sa1 = s1 / 100.0;
 
-            d = x1 - Math.pow(x, 2);
+            d = sa1 - Math.pow(sa, 2);
 
-            System.out.println("Sum: " + sum);
-            System.out.println("SA: " + sa);
+            System.out.println("S: " + sa);
+            System.out.println("S1: " + sa1);
             System.out.println("D: " + d);
 
         }
@@ -266,7 +268,7 @@ public class Main {
         try (Scanner in = new Scanner(System.in)) {
             // NP
             int ksi;
-            double a, Sn, S = 0, S1 = 0, b, z = 0.0, sa, sa1, d;
+            double a, Sn = 0, S = 0, S1 = 0, b, z = 0.0, sa, sa1, d;
 
             a = new Random().nextInt();
             b = new Random().nextInt();
@@ -282,13 +284,13 @@ public class Main {
                     Random rd = new Random();
                     z = rd.nextDouble();
                     System.out.println("Z: " + z);
-
-                    S += z;
-                    S1 += Math.pow(z, 2);
                 }
 
-                Sn = S - 50;
+                Sn = (S - 50) / Math.sqrt(100 / 12);
                 ksi = (int) (Sn * b + a);
+
+                S += ksi;
+                S1 += Math.pow(ksi, 2);
 
                 System.out.println("S: " + S);
                 System.out.println("S1: " + S1);
