@@ -41,6 +41,8 @@ public class Main {
             System.out.println("L: ");
             lambda = in.nextInt();
 
+            System.out.println("Lambda: " + lambda);
+
             for (int i = 0; i < 100; i++) {
 
                 ksi = 0;
@@ -58,7 +60,6 @@ public class Main {
                     sum += prob;
                 } while (z > sum);
 
-                System.out.println("Lambda: " + lambda);
                 System.out.println("Pr: " + prob);
                 System.out.println("Ksi: " + ksi);
 
@@ -228,11 +229,9 @@ public class Main {
 
             for (int i = 0; i < 100; i++) {
 
-                for (int j = 0; j < 100; j++) {
-                    Random rd = new Random();
-                    z = rd.nextDouble();
-                    System.out.println("Z: " + z);
-                }
+                Random rd = new Random();
+                z = rd.nextDouble();
+                System.out.println("Z: " + z);
 
                 ksi = ((-1 / a) * Math.log(1 - z));
 
@@ -240,7 +239,6 @@ public class Main {
                 s1 += Math.pow(ksi, 2);
 
                 System.out.println("Ksi: " + ksi);
-
             }
 
             sa = s / 100.0;
