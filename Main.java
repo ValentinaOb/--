@@ -36,7 +36,7 @@ public class Main {
         try (Scanner in = new Scanner(System.in)) {
             // Pyassonn
             int ksi;
-            double s = 0, s1 = 0, sa, sa1, z, prob, sum, lambda, d = 0, x = 0, x1 = 0;
+            double s = 0, s1 = 0, sa, sa1, z, prob, sum, lambda, d = 0;
 
             System.out.println("L: ");
             lambda = in.nextInt();
@@ -51,9 +51,6 @@ public class Main {
 
                 z = new Random().nextInt();
                 System.out.println("Z: " + z);
-
-                x += z;
-                x1 += Math.pow(z, 2);
 
                 do {
                     ksi += 1;
@@ -188,27 +185,22 @@ public class Main {
 
         try (Scanner in = new Scanner(System.in)) {
             // PP
-            double s = 0, s1 = 0, a = 0, b = 0, ksi, z, sa, sa1, d = 0;
-
-            a = new Random().nextDouble();
-            b = new Random().nextDouble();
+            int a = 5, b = 15;
+            double s = 0, s1 = 0, ksi, z, sa, sa1, d = 0;
 
             System.out.println("A: " + a);
             System.out.println("B: " + b);
 
             for (int i = 0; i < 100; i++) {
+                Random rd = new Random();
+                z = rd.nextDouble();
+                System.out.println("Z: " + z);
 
-                for (int j = 0; j < 100; j++) {
-                    Random rd = new Random();
-                    z = rd.nextDouble();
-                    System.out.println("Z: " + z);
+                ksi = ((b - a) * z + a);
+                System.out.println("Ksi: " + ksi);
 
-                    ksi = ((b - a) * z + a);
-                    System.out.println("Ksi: " + ksi);
-
-                    s += ksi;
-                    s1 += Math.pow(ksi, 2);
-                }
+                s += ksi;
+                s1 += Math.pow(ksi, 2);
             }
 
             sa = s / 100.0;
